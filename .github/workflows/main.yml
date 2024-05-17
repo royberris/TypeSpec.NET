@@ -29,6 +29,11 @@ jobs:
     - name: Install openapi-diff
       run: npm install -g openapi-diff
 
+    - name: NPM install
+      run: |
+        cd typespec
+        npm install
+
     - name: Build .NET project and run tests
       run: |
         dotnet build
@@ -36,11 +41,11 @@ jobs:
 
     - name: Generate TypeSpec OpenAPI spec
       run: |
-        tsp compile typespec/main.ts
+        tsp compile typespec/main.tsp
 
     - name: Move generated OpenAPI spec to standard location
       run: |
-        mv "tsp-output/@typespec/openapi3/openapi.*.yaml" openapi.yml
+        cp tsp-output/"@typespec"/openapi3/openapi.* openapi.yml
 
     - name: Fetch .NET OpenAPI spec
       run: |
