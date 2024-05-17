@@ -1,0 +1,13 @@
+{
+  "name": "weather-api",
+  "version": "1.0",
+  "type": "module",
+  "dependencies": {
+    "@typespec/compiler": "latest",
+    "@typespec/http": "latest",
+    "@typespec/openapi3": "latest",
+    "@typespec/rest": "latest",
+    "@typespec/versioning": "^0.56.0"
+  },
+  "private": true
+}
