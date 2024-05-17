@@ -21,7 +21,10 @@ jobs:
         node-version: '16'
 
     - name: Install TypeSpec CLI
-      run: npm install -g @typespec/cli
+      run: npm install -g @typespec/compiler
+
+    - name: Install json2yaml
+      run: npm install -g json2yaml
 
     - name: Install openapi-diff
       run: npm install -g openapi-diff
