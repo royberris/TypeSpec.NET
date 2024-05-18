@@ -45,7 +45,7 @@ jobs:
 
     - name: Move generated OpenAPI spec to standard location
       run: |
-        cp tsp-output/"@typespec"/openapi3/openapi.* openapi.yml
+        cp tsp-output/"@typespec"/openapi3/openapi.* openapi.yaml
 
     - name: Fetch .NET OpenAPI spec
       run: |
@@ -55,12 +55,12 @@ jobs:
     - name: Run openapi-diff and save output
       id: run_diff
       run: |
-        openapi-diff openapi.yml dotnet_openapi.yml > diff_output.json
+        openapi-diff openapi.yaml dotnet_openapi.yml | tee diff_output.txt
 
     - name: Check for breaking differences
       run: |
-        cat diff_output.json
-        if grep -q '"breakingDifferencesFound": false' diff_output.json; then
+        cat diff_output.txt
+        if grep -q '"breakingDifferencesFound": false' diff_output.txt; then
           echo "No breaking differences found."
         else
           echo "Breaking differences found!" >&2
