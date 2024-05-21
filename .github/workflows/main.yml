@@ -20,6 +20,9 @@ jobs:
       with:
         node-version: '20'
 
+    - name: Install TypeSpec CLI
+      run: npm install -g @typespec/compiler
+
     - name: Install json2yaml
       run: npm install -g json2yaml
 
