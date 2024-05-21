@@ -20,9 +20,6 @@ jobs:
       with:
         node-version: '20'
 
-    - name: Install TypeSpec CLI
-      run: npm install -g @typespec/compiler
-
     - name: Install json2yaml
       run: npm install -g json2yaml
 
@@ -41,11 +38,12 @@ jobs:
 
     - name: Generate TypeSpec OpenAPI spec
       run: |
-        tsp compile typespec/main.tsp
+        cd typespec/
+        tsp compile .
 
     - name: Move generated OpenAPI spec to standard location
       run: |
-        cp tsp-output/"@typespec"/openapi3/openapi.* openapi.yaml
+        cp typespec/tsp-output/"@typespec"/openapi3/openapi.* openapi.yaml
 
     - name: Fetch .NET OpenAPI spec
       run: |
