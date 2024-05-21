@@ -55,12 +55,12 @@ jobs:
     - name: Run openapi-diff and save output
       id: run_diff
       run: |
-        openapi-diff openapi.yaml dotnet_openapi.yml | tee diff_output.txt
+        openapi-diff openapi.yaml dotnet_openapi.yml > diff_output.json
 
     - name: Check for breaking differences
       run: |
-        cat diff_output.txt
-        if grep -q '"breakingDifferencesFound": false' diff_output.txt; then
+        cat diff_output.json
+        if grep -q '"breakingDifferencesFound": false' diff_output.json; then
           echo "No breaking differences found."
         else
           echo "Breaking differences found!" >&2
