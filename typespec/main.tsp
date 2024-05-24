@@ -28,4 +28,11 @@ namespace Weather {
         @statusCode statusCode: 200;
         @body result: WeatherResult;
     };
+
+    @post
+    @route("/weather/news")
+    op createNews(@query name: string): {
+        @statusCode statusCode: 200;
+        @body result: string;
+    };
 }
