@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Test;
+﻿namespace Test;
 
 public class IntegrationFixture : IAsyncLifetime
 {
@@ -15,10 +9,12 @@ public class IntegrationFixture : IAsyncLifetime
         return Task.CompletedTask;
     }
 
-    public async Task InitializeAsync()
+    public Task InitializeAsync()
     {
         var factory = new CustomWebApplicationFactory();
 
         HttpClient = factory.CreateClient();
+
+        return Task.CompletedTask;
     }
 }
