@@ -22,4 +22,10 @@ public class WeatherController : ControllerBase
 
         return Ok(result);
     }
+
+    [HttpPost("weather/new")]
+    public ActionResult<string> CreateNews([Required, FromQuery] string name)
+    {
+        return Ok(name);
+    }
 }
