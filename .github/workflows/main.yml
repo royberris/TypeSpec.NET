@@ -41,11 +41,12 @@ jobs:
 
     - name: Generate TypeSpec OpenAPI spec
       run: |
-        tsp compile typespec/main.tsp
+        cd typespec/
+        tsp compile .
 
     - name: Move generated OpenAPI spec to standard location
       run: |
-        cp tsp-output/"@typespec"/openapi3/openapi.* openapi.yml
+        cp typespec/tsp-output/"@typespec"/openapi3/openapi.* openapi.yaml
 
     - name: Fetch .NET OpenAPI spec
       run: |
@@ -55,7 +56,7 @@ jobs:
     - name: Run openapi-diff and save output
       id: run_diff
       run: |
-        openapi-diff openapi.yml dotnet_openapi.yml > diff_output.json
+        openapi-diff openapi.yaml dotnet_openapi.yml > diff_output.json
 
     - name: Check for breaking differences
       run: |
