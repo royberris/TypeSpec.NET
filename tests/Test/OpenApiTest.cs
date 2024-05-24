@@ -13,7 +13,7 @@ namespace Test
 
             var dotnetOpenApiSpec = await response.Content.ReadAsStringAsync();
 
-            var solutionDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../.."));
+            var solutionDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../.."));
             var openApiFilePath = Path.Combine(solutionDirectory, "dotnet_openapi.json");
 
             // Save the OpenAPI spec to a file for comparison
