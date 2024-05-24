@@ -18,6 +18,8 @@ public class Program
                 Title = "Weather API"
             });
 
+            options.SupportNonNullableReferenceTypes();
+
             options.MapType<DateOnly>(() => new OpenApiSchema
             {
                 Type = "string",

@@ -16,6 +16,7 @@ public class WeatherController : ControllerBase
         var result = new WeatherResult
         {
             Name = location,
+            City = Guid.NewGuid().ToString(),
             GivenDate = date ?? DateOnly.FromDateTime(DateTime.Today),
         };
 
