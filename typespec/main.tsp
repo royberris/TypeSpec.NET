@@ -18,6 +18,7 @@ namespace Weather {
 
     model WeatherResult {
         name: string;
+        city?: string;
         givenDate?: plainDate;
     }
 
