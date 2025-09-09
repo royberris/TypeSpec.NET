@@ -24,7 +24,7 @@ namespace Weather {
 
     @get
     @route("/weather")
-    op getWeather(@query location: string, @query date?: plainDate): {
+    op getWeather(@query location: string, @query date?: plainDate, @query time?: plainTime): {
         @statusCode statusCode: 200;
         @body result: WeatherResult;
     };
